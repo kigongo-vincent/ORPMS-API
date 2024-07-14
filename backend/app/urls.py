@@ -1,0 +1,56 @@
+from django.urls import path
+from . import views
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+urlpatterns = [
+    path('token/', views.CustomTokenObtainPairView.as_view()),
+    path('token/refresh', TokenRefreshView.as_view()),
+    path("topics/", views.topics),
+    path("signup/", views.sign_up),
+    path("notifications/<str:pk>", views.notifications),
+    path("external_notifications/", views.external_notifications),
+    path("notification/<str:pk>", views.notification),
+    path("search/<str:pk>", views.search),
+    path("projects/<str:category>/<str:pk>", views.projects),
+    path("add_project/", views.add_project),
+    path("groups/<str:pk>", views.groups),
+    path("project/<str:pk>", views.project),
+    path("comments/<str:pk>", views.comments),
+    path("messages/<str:pk>", views.messages),
+    path("user/<str:pk>", views.user),
+    path("group/<str:pk>", views.group),
+    path("supervisors/", views.supervisors),
+    path("students/", views.students),
+    path("add_group/", views.add_group),
+    path("get_group/<str:pk>", views.get_group),
+    path("group_info/<str:pk>", views.group_info),
+    path("get_project/<str:pk>", views.get_project),
+    path("update_user/<str:pk>", views.update_user),
+    path("update_project/<str:pk>", views.update_project),
+    path("approve_project/<str:pk>", views.approve_project),
+    path("verify", views.verify_otp),
+    path("resend/<str:pk>", views.resend),
+    path("years_and_supervisors/", views.years_and_supervisors),
+    path("view/<str:user_id>/<project_id>", views.add_view),
+    path("grades/<str:pk>", views.grades),
+    path("change_grades/<str:pk>", views.change_grades),
+    path("add_grade/", views.add_grade),
+    path("deadlines/", views.deadline),
+    path("edit_deadline/<str:pk>", views.edit_deadline),
+    path("my_projects/<str:lecturer_id>", views.report_statistics),
+    path("results/", views.report_analysis),
+    path("add_member/<str:pk>", views.add_member),
+    path("remove_member/<str:pk>", views.remove_member),
+    path("courses/", views.courses),
+    path("all_supervisors/", views.all_supervisors),
+    path("all_projects/", views.view_all_projects),
+
+    # lecturer auth 
+    path("verification/", views.verification),
+    path("OTP/", views.OTP),
+
+    path('reset_password/<str:pk>', views.reset_password),
+    path('update_password/<str:pk>', views.update_password),
+    path('broadcast', views.broadcast),
+    path('get_broadcast/<str:pk>', views.get_broadcasts)
+
+]
